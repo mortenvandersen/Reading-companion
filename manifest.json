@@ -1,11 +1,20 @@
 {
-  "generated_at": "2026-05-04T16:49:45.875641+00:00",
+  "generated_at": "2026-05-04T17:30:42.676021+00:00",
   "counts": {
-    "articles": 2,
+    "articles": 3,
     "notes": 1,
     "concepts": 5
   },
   "articles": [
+    {
+      "path": "articles/2026-05-04-google-nvidia-and-openai-stratechery-by-ben-thompson.md",
+      "filename": "2026-05-04-google-nvidia-and-openai-stratechery-by-ben-thompson.md",
+      "title": "Google, Nvidia, and OpenAI – Stratechery by Ben Thompson",
+      "source": "stratechery",
+      "source_url": "https://stratechery.com/2025/google-nvidia-and-openai/",
+      "date": "2026-05-04",
+      "tags": []
+    },
     {
       "path": "articles/2026-05-04-mythos-muse-and-the-opportunity-cost-of-compute-stratechery-by-ben-thompson.md",
       "filename": "2026-05-04-mythos-muse-and-the-opportunity-cost-of-compute-stratechery-by-ben-thompson.md",
