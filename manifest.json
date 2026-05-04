@@ -1,11 +1,29 @@
 {
-  "generated_at": "2026-05-04T18:17:21.268654+00:00",
+  "generated_at": "2026-05-04T18:41:46.100310+00:00",
   "counts": {
-    "articles": 3,
+    "articles": 5,
     "notes": 2,
     "concepts": 9
   },
   "articles": [
+    {
+      "path": "articles/2026-05-04-agents-over-bubbles-stratechery-by-ben-thompson.md",
+      "filename": "2026-05-04-agents-over-bubbles-stratechery-by-ben-thompson.md",
+      "title": "Agents Over Bubbles – Stratechery by Ben Thompson",
+      "source": "stratechery",
+      "source_url": "https://stratechery.com/2026/agents-over-bubbles/",
+      "date": "2026-05-04",
+      "tags": []
+    },
+    {
+      "path": "articles/2026-05-04-apple-50-years-part-article-on-ai-integration.md",
+      "filename": "2026-05-04-apple-50-years-part-article-on-ai-integration.md",
+      "title": "Apple 50 years - part article on Ai integration",
+      "source": "stratechery",
+      "source_url": "https://stratechery.com/",
+      "date": "2026-05-04",
+      "tags": []
+    },
     {
       "path": "articles/2026-05-04-google-nvidia-and-openai-stratechery-by-ben-thompson.md",
       "filename": "2026-05-04-google-nvidia-and-openai-stratechery-by-ben-thompson.md",
