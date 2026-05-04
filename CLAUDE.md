@@ -44,7 +44,7 @@ When I say *"let's discuss the new article"* (or similar), do this:
 2. **Produce a TL;DR.** 5 bullets max. Each bullet is a *claim*, not a topic. Lead with the claim that matters most, not the one that appears first in the article.
 3. **Flag one thing worth pushing on.** Before I react, name the single weakest or most interesting claim and say why.
 4. **Wait for me to react.** Don't barrel into the note yet.
-5. **As we discuss, write the note in real time** in `notes/<same-filename-as-article>.md`, using the format defined in `templates/note-template.md`. Update the file after each meaningful exchange — don't wait until the end.
+5. **Write the note in `notes/<same-filename-as-article>.md`**, using the format defined in `templates/note-template.md`. For longer or meandering discussions, update the note incrementally as we go. For short or structured discussions, write it cleanly at the end. Don't fragment the note with constantly rewritten mid-conversation drafts.
 6. **Handle concepts as they appear** (see "Concept handling" below).
 7. **At the end of the session**, append a row to `index.md` linking the article ↔ note ↔ concepts touched. See "Index discipline" below.
 
