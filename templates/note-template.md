@@ -1,5 +1,6 @@
 ---
 date: YYYY-MM-DD
+source: stratechery
 source_url:
 title:
 article_file: ../articles/YYYY-MM-DD-slug.md
