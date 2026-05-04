@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-04T18:41:46.100310+00:00",
+  "generated_at": "2026-05-04T20:10:05.140800+00:00",
   "counts": {
-    "articles": 5,
+    "articles": 6,
     "notes": 2,
     "concepts": 9
   },
@@ -12,6 +12,15 @@
       "title": "Agents Over Bubbles – Stratechery by Ben Thompson",
       "source": "stratechery",
       "source_url": "https://stratechery.com/2026/agents-over-bubbles/",
+      "date": "2026-05-04",
+      "tags": []
+    },
+    {
+      "path": "articles/2026-05-04-anthropic-and-alignment-stratechery-by-ben-thompson.md",
+      "filename": "2026-05-04-anthropic-and-alignment-stratechery-by-ben-thompson.md",
+      "title": "Anthropic and Alignment – Stratechery by Ben Thompson",
+      "source": "stratechery",
+      "source_url": "https://stratechery.com/2026/anthropic-and-alignment/",
       "date": "2026-05-04",
       "tags": []
     },
