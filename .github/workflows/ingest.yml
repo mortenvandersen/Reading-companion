@@ -1,0 +1,46 @@
+name: Ingest inbox
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # hourly, best-effort
+  workflow_dispatch:
+
+concurrency:
+  group: ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install --quiet httpx
+
+      - name: Run ingest
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: python scripts/ingest_inbox.py
+
+      - name: Commit and push new articles
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [[ -z "$(git status --porcelain articles/)" ]]; then
+            echo "No new articles."
+            exit 0
+          fi
+          git add articles/
+          # Build commit message from new article filenames
+          NEW_FILES=$(git diff --cached --name-only --diff-filter=A articles/ | head -5)
+          COUNT=$(git diff --cached --name-only --diff-filter=A articles/ | wc -l)
+          git commit -m "Ingest ${COUNT} article(s) from inbox" -m "$NEW_FILES"
+          git push

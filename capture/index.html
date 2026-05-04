@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Capture</title>
+  <style>
+    :root {
+      --fg: #1a1a1a;
+      --muted: #666;
+      --bg: #fafafa;
+      --border: #ddd;
+      --accent: #2563eb;
+      --accent-fg: #fff;
+      --ok: #15803d;
+      --err: #b91c1c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      margin: 0;
+      padding: 24px 16px;
+    }
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0 0 16px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 12px 0 4px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      font: inherit;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--fg);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+    }
+    .row { display: flex; gap: 8px; }
+    .row > * { flex: 1; }
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    details summary {
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 12px 0 4px;
+    }
+    button {
+      margin-top: 16px;
+      padding: 10px 16px;
+      font: inherit;
+      font-weight: 600;
+      background: var(--accent);
+      color: var(--accent-fg);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .status {
+      margin-top: 16px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .status.ok { background: #dcfce7; color: var(--ok); }
+    .status.err { background: #fee2e2; color: var(--err); }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Capture</h1>
+
+    <form id="capture-form">
+      <label for="title">Title</label>
+      <input id="title" type="text" autocomplete="off" required />
+
+      <div class="row">
+        <div>
+          <label for="slug">Slug</label>
+          <input id="slug" type="text" autocomplete="off" required pattern="[a-z0-9-]+" />
+        </div>
+        <div>
+          <label for="source">Source</label>
+          <input id="source" type="text" autocomplete="off" />
+        </div>
+      </div>
+
+      <label for="tags">Tags (comma-separated, optional)</label>
+      <input id="tags" type="text" autocomplete="off" />
+
+      <label for="notes">Capture note (optional — why am I saving this?)</label>
+      <textarea id="notes" rows="2"></textarea>
+
+      <details>
+        <summary id="body-summary">Body (0 chars)</summary>
+        <textarea id="body" rows="10"></textarea>
+      </details>
+
+      <input id="source-url" type="hidden" />
+
+      <button id="submit" type="submit">Capture</button>
+    </form>
+
+    <div id="status" class="status hidden"></div>
+  </main>
+
+  <script type="module">
+    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+    const SUPABASE_URL = "https://kqbmycmqstznubmoptua.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_ZqdVBWCA26Dk6ZxV3cQaIA_XL6H5IrL";
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const $ = (id) => document.getElementById(id);
+    const form = $("capture-form");
+    const statusEl = $("status");
+
+    function showStatus(msg, kind) {
+      statusEl.textContent = msg;
+      statusEl.className = `status ${kind}`;
+    }
+
+    function slugify(s) {
+      return s
+        .toLowerCase()
+        .normalize("NFKD")
+        .replace(/[̀-ͯ]/g, "")
+        .replace(/[^a-z0-9\s-]/g, "")
+        .trim()
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-")
+        .slice(0, 80);
+    }
+
+    function siteToSourceSlug(site) {
+      if (!site) return "";
+      const host = site.replace(/^www\./, "");
+      const known = {
+        "stratechery.com": "stratechery",
+      };
+      if (known[host]) return known[host];
+      return host.split(".")[0];
+    }
+
+    function parseHash() {
+      const out = {};
+      const hash = window.location.hash.replace(/^#/, "");
+      for (const part of hash.split("&")) {
+        if (!part) continue;
+        const [k, v = ""] = part.split("=");
+        out[decodeURIComponent(k)] = decodeURIComponent(v.replace(/\+/g, " "));
+      }
+      return out;
+    }
+
+    function updateBodySummary() {
+      const len = $("body").value.length;
+      $("body-summary").textContent = `Body (${len.toLocaleString()} chars)`;
+    }
+
+    const params = parseHash();
+    if (params.title) $("title").value = params.title;
+    if (params.body) $("body").value = params.body;
+    if (params.source) $("source-url").value = params.source;
+    if (params.site) $("source").value = siteToSourceSlug(params.site);
+    if (params.title) $("slug").value = slugify(params.title);
+    updateBodySummary();
+
+    $("title").addEventListener("input", () => {
+      $("slug").value = slugify($("title").value);
+    });
+    $("body").addEventListener("input", updateBodySummary);
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const submitBtn = $("submit");
+      submitBtn.disabled = true;
+      showStatus("Saving...", "ok");
+
+      const row = {
+        source_url: $("source-url").value,
+        site: $("source").value || null,
+        title: $("title").value,
+        body: $("body").value,
+        notes: $("notes").value || null,
+      };
+
+      const tags = $("tags").value.trim();
+      const slug = $("slug").value.trim();
+      const extras = [];
+      if (slug) extras.push(`slug=${slug}`);
+      if (tags) extras.push(`tags=${tags}`);
+      if (extras.length) {
+        row.notes = (row.notes ? row.notes + "\n\n" : "") + extras.join("\n");
+      }
+
+      const { error } = await supabase.from("inbox").insert(row);
+      if (error) {
+        showStatus(`Error: ${error.message}`, "err");
+        submitBtn.disabled = false;
+        return;
+      }
+
+      showStatus("Captured. Will appear in repo within ~1 hour.", "ok");
+      submitBtn.textContent = "Captured";
+    });
+  </script>
+</body>
+</html>
