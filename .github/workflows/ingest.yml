@@ -22,7 +22,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install deps
-        run: pip install --quiet httpx
+        run: pip install --quiet httpx pyyaml
 
       - name: Run ingest
         env:
@@ -30,17 +30,23 @@ jobs:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: python scripts/ingest_inbox.py
 
-      - name: Commit and push new articles
+      - name: Regenerate manifest
+        run: python scripts/generate_manifest.py
+
+      - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [[ -z "$(git status --porcelain articles/)" ]]; then
-            echo "No new articles."
+          git add articles/ manifest.json
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
             exit 0
           fi
-          git add articles/
-          # Build commit message from new article filenames
-          NEW_FILES=$(git diff --cached --name-only --diff-filter=A articles/ | head -5)
-          COUNT=$(git diff --cached --name-only --diff-filter=A articles/ | wc -l)
-          git commit -m "Ingest ${COUNT} article(s) from inbox" -m "$NEW_FILES"
+          NEW_ARTICLES=$(git diff --cached --name-only --diff-filter=A articles/ | wc -l | tr -d ' ')
+          if [[ "$NEW_ARTICLES" -gt 0 ]]; then
+            NEW_FILES=$(git diff --cached --name-only --diff-filter=A articles/ | head -5)
+            git commit -m "Ingest ${NEW_ARTICLES} article(s) from inbox" -m "$NEW_FILES"
+          else
+            git commit -m "Refresh manifest"
+          fi
           git push

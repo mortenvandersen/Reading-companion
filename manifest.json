@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-05-04T16:24:46.916384+00:00",
+  "counts": {
+    "articles": 1,
+    "notes": 1,
+    "concepts": 5
+  },
+  "articles": [
+    {
+      "path": "articles/2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md",
+      "filename": "2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md",
+      "title": "Tim Cook’s Impeccable Timing – Stratechery by Ben Thompson",
+      "source": "stratechery",
+      "source_url": "https://stratechery.com/2026/tim-cooks-impeccable-timing/",
+      "date": "2026-05-04",
+      "tags": []
+    }
+  ],
+  "notes": [
+    {
+      "path": "notes/2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md",
+      "filename": "2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md",
+      "title": "Tim Cook's Impeccable Timing",
+      "source": "stratechery",
+      "date": "2026-05-04",
+      "tags": [
+        "apple",
+        "leadership",
+        "succession",
+        "ai",
+        "strategy"
+      ],
+      "concepts": [
+        "zero-to-one",
+        "cook-doctrine",
+        "ceo-succession-timing",
+        "apple-priority-stack",
+        "vertical-integration-apple"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "path": "concepts/apple-priority-stack.md",
+      "filename": "apple-priority-stack.md",
+      "slug": "apple-priority-stack",
+      "title": "Apple's Priority Stack",
+      "first_seen": "2026-05-04",
+      "tags": [
+        "apple",
+        "strategy",
+        "app-store",
+        "platform-policy"
+      ],
+      "articles": [
+        "2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md"
+      ]
+    },
+    {
+      "path": "concepts/ceo-succession-timing.md",
+      "filename": "ceo-succession-timing.md",
+      "slug": "ceo-succession-timing",
+      "title": "CEO Succession Timing (relative to last 0→1)",
+      "first_seen": "2026-05-04",
+      "tags": [
+        "leadership",
+        "strategy",
+        "succession"
+      ],
+      "articles": [
+        "2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md"
+      ]
+    },
+    {
+      "path": "concepts/cook-doctrine.md",
+      "filename": "cook-doctrine.md",
+      "slug": "cook-doctrine",
+      "title": "The Cook Doctrine",
+      "first_seen": "2026-05-04",
+      "tags": [
+        "apple",
+        "strategy",
+        "principles"
+      ],
+      "articles": [
+        "2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md"
+      ]
+    },
+    {
+      "path": "concepts/vertical-integration-apple.md",
+      "filename": "vertical-integration-apple.md",
+      "slug": "vertical-integration-apple",
+      "title": "Vertical Integration as Apple's Structural Identity",
+      "first_seen": "2026-05-04",
+      "tags": [
+        "apple",
+        "strategy",
+        "integration",
+        "dependencies"
+      ],
+      "articles": [
+        "2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md"
+      ]
+    },
+    {
+      "path": "concepts/zero-to-one.md",
+      "filename": "zero-to-one.md",
+      "slug": "zero-to-one",
+      "title": "Zero to One",
+      "first_seen": "2026-05-04",
+      "tags": [
+        "framework",
+        "innovation",
+        "thiel"
+      ],
+      "articles": [
+        "2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md"
+      ]
+    }
+  ]
+}

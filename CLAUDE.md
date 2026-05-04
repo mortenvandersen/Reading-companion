@@ -47,6 +47,7 @@ When I say *"let's discuss the new article"* (or similar), do this:
 5. **Write the note in `notes/<same-filename-as-article>.md`**, using the format defined in `templates/note-template.md`. For longer or meandering discussions, update the note incrementally as we go. For short or structured discussions, write it cleanly at the end. Don't fragment the note with constantly rewritten mid-conversation drafts.
 6. **Handle concepts as they appear** (see "Concept handling" below).
 7. **At the end of the session**, append a row to `index.md` linking the article ↔ note ↔ concepts touched. See "Index discipline" below.
+8. **Regenerate the dashboard manifest.** Run `python scripts/generate_manifest.py` and include `manifest.json` in the commit. The dashboard at `index.html` reads this file; if it's stale, new notes and concepts won't appear in the web UI.
 
 If I open Claude Code without saying anything, ask: *"new article, continue an old note, or work on concepts?"*
 
@@ -125,9 +126,11 @@ When discussing an article, mention the source in the TL;DR if it's not Stratech
 
 **Infrastructure, ignore for reading purposes:**
 
-- `capture/`
-- `scripts/`
-- `.github/`
+- `capture/` — bookmarklet capture page
+- `scripts/` — ingestion and manifest generator
+- `.github/` — workflow definitions
+- `index.html` — dashboard UI
+- `manifest.json` — generated index of articles/notes/concepts for the dashboard
 
 ---
 
