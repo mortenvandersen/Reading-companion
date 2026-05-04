@@ -35,6 +35,7 @@ The recurring critique Ben applies: violations of "own and control" trade short-
 ## Evolution
 
 - 2026-05-04 — first captured. The article uses this concept as the central evaluative frame for Cook's legacy: every place Apple is structurally vulnerable maps to a violation of "own and control"; the one place Apple is winning the future (Apple Silicon) is a re-integration.
+- 2026-05-04 — refined by [Mythos, Muse, and the Opportunity Cost of Compute](../articles/2026-05-04-mythos-muse-and-the-opportunity-cost-of-compute-stratechery-by-ben-thompson.md). Sharper version of "own and control": **own the layer where your differentiation accrues; rent the rest.** Apple's mistake with Gemini-as-Siri isn't renting per se — it's renting the layer where Apple's value (OS integration) is supposed to come from. Anthropic renting hyperscaler compute is fine because Anthropic's value accrues at the customer / product layer, not the silicon layer. Same principle, opposite conclusions, depending on where value lives.
 
 ## Open threads
 

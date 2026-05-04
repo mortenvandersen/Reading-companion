@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-04T17:30:42.676021+00:00",
+  "generated_at": "2026-05-04T17:35:55.624412+00:00",
   "counts": {
     "articles": 3,
-    "notes": 1,
-    "concepts": 5
+    "notes": 2,
+    "concepts": 9
   },
   "articles": [
     {
@@ -36,6 +36,28 @@
   ],
   "notes": [
     {
+      "path": "notes/2026-05-04-mythos-muse-and-the-opportunity-cost-of-compute-stratechery-by-ben-thompson.md",
+      "filename": "2026-05-04-mythos-muse-and-the-opportunity-cost-of-compute-stratechery-by-ben-thompson.md",
+      "title": "Mythos, Muse, and the Opportunity Cost of Compute",
+      "source": "stratechery",
+      "date": "2026-05-04",
+      "tags": [
+        "ai",
+        "aggregation-theory",
+        "opportunity-cost",
+        "openai",
+        "anthropic",
+        "meta",
+        "strategy"
+      ],
+      "concepts": [
+        "aggregation-theory",
+        "ai-compute-opportunity-cost",
+        "zero-marginal-costs",
+        "distillation"
+      ]
+    },
+    {
       "path": "notes/2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md",
       "filename": "2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md",
       "title": "Tim Cook's Impeccable Timing",
@@ -58,6 +80,38 @@
     }
   ],
   "concepts": [
+    {
+      "path": "concepts/aggregation-theory.md",
+      "filename": "aggregation-theory.md",
+      "slug": "aggregation-theory",
+      "title": "Aggregation Theory",
+      "first_seen": "2026-05-04",
+      "tags": [
+        "framework",
+        "aggregation",
+        "internet",
+        "ben-thompson"
+      ],
+      "articles": [
+        "2026-05-04-mythos-muse-and-the-opportunity-cost-of-compute-stratechery-by-ben-thompson.md"
+      ]
+    },
+    {
+      "path": "concepts/ai-compute-opportunity-cost.md",
+      "filename": "ai-compute-opportunity-cost.md",
+      "slug": "ai-compute-opportunity-cost",
+      "title": "AI Compute as Opportunity Cost (not Marginal Cost)",
+      "first_seen": "2026-05-04",
+      "tags": [
+        "ai",
+        "strategy",
+        "capital-allocation",
+        "hyperscalers"
+      ],
+      "articles": [
+        "2026-05-04-mythos-muse-and-the-opportunity-cost-of-compute-stratechery-by-ben-thompson.md"
+      ]
+    },
     {
       "path": "concepts/apple-priority-stack.md",
       "filename": "apple-priority-stack.md",
@@ -90,6 +144,22 @@
       ]
     },
     {
+      "path": "concepts/distillation.md",
+      "filename": "distillation.md",
+      "slug": "distillation",
+      "title": "Distillation",
+      "first_seen": "2026-05-04",
+      "tags": [
+        "ai",
+        "training",
+        "competitive-strategy",
+        "ip"
+      ],
+      "articles": [
+        "2026-05-04-mythos-muse-and-the-opportunity-cost-of-compute-stratechery-by-ben-thompson.md"
+      ]
+    },
+    {
       "path": "concepts/cook-doctrine.md",
       "filename": "cook-doctrine.md",
       "slug": "cook-doctrine",
@@ -118,6 +188,22 @@
       ],
       "articles": [
         "2026-05-04-tim-cooks-impeccable-timing-stratechery-by-ben-thompson.md"
+      ]
+    },
+    {
+      "path": "concepts/zero-marginal-costs.md",
+      "filename": "zero-marginal-costs.md",
+      "slug": "zero-marginal-costs",
+      "title": "Zero Marginal Costs",
+      "first_seen": "2026-05-04",
+      "tags": [
+        "framework",
+        "economics",
+        "internet",
+        "foundational"
+      ],
+      "articles": [
+        "2026-05-04-mythos-muse-and-the-opportunity-cost-of-compute-stratechery-by-ben-thompson.md"
       ]
     },
     {
