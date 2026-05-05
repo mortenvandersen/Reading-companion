@@ -1,8 +1,6 @@
 name: Ingest inbox
 
 on:
-  schedule:
-    - cron: "0 * * * *"  # hourly, best-effort
   workflow_dispatch:
 
 concurrency:
