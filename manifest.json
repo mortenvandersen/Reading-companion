@@ -1,11 +1,20 @@
 {
-  "generated_at": "2026-05-12T12:56:55.428527+00:00",
+  "generated_at": "2026-05-12T13:07:03.077421+00:00",
   "counts": {
-    "articles": 8,
+    "articles": 9,
     "notes": 2,
     "concepts": 9
   },
   "articles": [
+    {
+      "path": "articles/2026-05-12-the-inference-shift-stratechery-by-ben-thompson.md",
+      "filename": "2026-05-12-the-inference-shift-stratechery-by-ben-thompson.md",
+      "title": "The Inference Shift – Stratechery by Ben Thompson",
+      "source": "stratechery",
+      "source_url": "https://stratechery.com/2026/the-inference-shift/",
+      "date": "2026-05-12",
+      "tags": []
+    },
     {
       "path": "articles/2026-05-11-the-inference-shift-stratechery-by-ben-thompson.md",
       "filename": "2026-05-11-the-inference-shift-stratechery-by-ben-thompson.md",
